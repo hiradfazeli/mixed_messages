@@ -56,4 +56,4 @@ const randomMessage = () => {
     
 }
 
-console.log(randomMessage())
+
