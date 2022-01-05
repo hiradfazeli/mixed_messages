@@ -44,13 +44,14 @@ const randomType = () => {
 
 // final message which displays to the user
 const randomMessage = () => {
-    const type = randomType();
-    if(type[numGenerator(type.length)] === 'Joke'){
-        return message.jokes.content[numGenerator(message.jokes.content.length)];
-    }else if(type[numGenerator(type.length)] === 'Quote'){
-        return message.quotes.content[numGenerator(message.quotes.content.length)];
+    const types = randomType();
+    const type = types[numGenerator(types.length)]
+    if(type === 'Joke'){
+        return message.jokes.content[numGenerator(message.jokes.content.length)] + `\n\nType of message: ${type}`;
+    }else if(type === 'Quote'){
+        return message.quotes.content[numGenerator(message.quotes.content.length)] + `\n\nType of message: ${type}`;
     }else{
-        return message.ads.content[numGenerator(message.ads.content.length)];
+        return message.ads.content[numGenerator(message.ads.content.length)] + `\n\nType of message: ${type}`;
     }
     
 }
