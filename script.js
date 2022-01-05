@@ -1,47 +1,58 @@
 const message = {
     jokes: {
         type: 'Joke',
-        content: []
+        content: [
+            `Did you hear about the mathematician who’s afraid of negative numbers?\nHe’ll stop at nothing to avoid them.`,
+            `What’s the best thing about Switzerland?\nI don’t know, but the flag is a big plus.`,
+            `I invented a new word!\nPlagiarism!`
+        ]
     },
 
     quotes: {
         type: 'Quote',
-        content: []
+        content: [
+            `Great things in business are never done by one person. They're done by a team of people.`,
+            `Design is not just what it looks like and feels like. Design is how it works.`,
+            `Stay hungry, stay foolish.`
+        ]
     },
 
     ads: {
         type: 'Advertisement',
-        content: []
-    },
-
-    contentFill(type, content){
-        type.toLowerCase();
-        if(type === 'joke'){
-            return this.jokes.content.push(content);
-        }else if(type === 'quote'){
-            return this.quotes.content.push(content);
-        }else if(type === 'advertisement'){
-            return this.ads.content.push(content);
-        }else{
-            return `Wrong "type" entered!`
-        }
+        content: [
+            `Privacy. That's iPhone.`,
+            `It doesn't take a genius.`,
+            `Brilliant. In every way.`
+        ]
     }
 }
 
-message.contentFill('joke', `Did you hear about the mathematician who’s afraid of negative numbers?\nHe’ll stop at nothing to avoid them.`);
-message.contentFill('joke', `What’s the best thing about Switzerland?\nI don’t know, but the flag is a big plus.`);
-message.contentFill('joke', `I invented a new word!\nPlagiarism!`);
-message.contentFill('quote', `Great things in business are never done by one person. They're done by a team of people.`);
-message.contentFill('quote', `Design is not just what it looks like and feels like. Design is how it works.`);
-message.contentFill('quote', `Stay hungry, stay foolish.`);
-message.contentFill('advertisement', `Privacy. That's iPhone.`);
-message.contentFill('advertisement', `It doesn't take a genius.`);
-message.contentFill('advertisement', `Brilliant. In every way.`);
-
+// this function generates random numbers
 const numGenerator = num =>{
     return Math.floor(Math.random()*num);
 }
 
+// type decision happens
+const randomType = () => {
+    const types = [];
+    for(let prop in message){
+        types.push((message[prop].type));
+    }
 
+    return types;
+}
 
+// final message which displays to the user
+const randomMessage = () => {
+    const type = randomType();
+    if(type[numGenerator(type.length)] === 'Joke'){
+        return message.jokes.content[numGenerator(message.jokes.content.length)];
+    }else if(type[numGenerator(type.length)] === 'Quote'){
+        return message.quotes.content[numGenerator(message.quotes.content.length)];
+    }else{
+        return message.ads.content[numGenerator(message.ads.content.length)];
+    }
+    
+}
 
+console.log(randomMessage())
