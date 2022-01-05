@@ -26,6 +26,8 @@ const message = {
             return `Wrong "type" entered!`
         }
     }
+
+    get content()
 }
 
 message.contentFill('joke', `Did you hear about the mathematician who’s afraid of negative numbers?\nHe’ll stop at nothing to avoid them.`);
@@ -38,5 +40,10 @@ message.contentFill('advertisement', `Privacy. That's iPhone.`);
 message.contentFill('advertisement', `It doesn't take a genius.`);
 message.contentFill('advertisement', `Brilliant. In every way.`);
 
+const numGenerator = num =>{
+    return Math.floor(Math.random()*num);
+}
 
-console.log(message.jokes.content);
+
+
+
