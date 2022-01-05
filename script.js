@@ -26,7 +26,6 @@ const message = {
             return `Wrong "type" entered!`
         }
     }
-
 }
 
 message.contentFill('joke', `Did you hear about the mathematician who’s afraid of negative numbers?\nHe’ll stop at nothing to avoid them.`);
